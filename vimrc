@@ -42,6 +42,14 @@ Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-scripts/ctags.vim'
 Bundle 'vim-scripts/greplace.vim'
 Bundle 'vim-scripts/tComment'
+Bundle 'vim-scripts/robokai'
+Bundle 'vim-scripts/256-jungle'
+Bundle 'vim-scripts/rdark-terminal'
+Bundle 'vim-scripts/burnttoast256'
+Bundle 'vim-scripts/RubySinatra'
+Bundle 'vim-scripts/pythoncomplete'
+Bundle 'docunext/closetag.vim'
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'xenoterracide/html.vim'
 
 filetype plugin indent on
@@ -65,6 +73,7 @@ augroup END
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set backspace=2
 
 " Display extra whitespace
 "set list listchars=tab:»·,trail:·
@@ -81,7 +90,7 @@ if executable("ag")
 endif
 
 " Color scheme
-colorscheme delek
+colorscheme robokai
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
