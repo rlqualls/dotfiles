@@ -44,6 +44,7 @@ Bundle 'vim-scripts/greplace.vim'
 Bundle 'vim-scripts/tComment'
 Bundle 'vim-scripts/RubySinatra'
 Bundle 'vim-scripts/pythoncomplete'
+Bundle 'vim-scripts/Zenburn'
 Bundle 'docunext/closetag.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'xenoterracide/html.vim'
@@ -86,7 +87,7 @@ if executable("ag")
 endif
 
 " Color scheme
-colorscheme delek
+colorscheme zenburn
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
