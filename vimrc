@@ -11,12 +11,6 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-endif
-
 " Declare bundles are handled via Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -45,9 +39,16 @@ Bundle 'vim-scripts/tComment'
 Bundle 'vim-scripts/RubySinatra'
 Bundle 'vim-scripts/pythoncomplete'
 Bundle 'vim-scripts/Zenburn'
+Bundle 'vim-scripts/vim-coffee-script'
 Bundle 'docunext/closetag.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'xenoterracide/html.vim'
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+  syntax on
+endif
 
 filetype plugin indent on
 
