@@ -19,3 +19,6 @@
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
+[user]
+	email = rlqualls@una.edu
+	name = Robert Qualls
