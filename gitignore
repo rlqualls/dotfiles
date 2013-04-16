@@ -1,3 +1,4 @@
+vim/
 *.DS_Store
 *.sw[nop]
 .bundle
@@ -9,6 +10,4 @@ tags
 tmp/**/*
 !tmp/cache/.keep
 vendor/bundler_gems
-vim/.netrwhist
 zeus.json
-vim/*

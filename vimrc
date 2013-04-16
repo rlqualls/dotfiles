@@ -43,6 +43,7 @@ Bundle 'vim-scripts/vim-coffee-script'
 Bundle 'docunext/closetag.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'xenoterracide/html.vim'
+Bundle 'othree/html5.vim'
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
