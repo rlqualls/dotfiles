@@ -9,7 +9,8 @@ URxvt*shading: 110
 URxvt.saveLines:32767
 URxvt.scrollBar: false
 
-URxvt*font: -*-terminus-medium-r-normal-*-*-*-*-*-*-*-iso10646-*
+URxvt*font: xft:terminus:pixelsize=14
+#URxvt*font: -*-terminus-medium-r-normal-*-*-*-*-*-*-*-iso10646-*
 !URxvt*xftAntialias: true
 
 URxvt.perl-ext-common: default,matcher
