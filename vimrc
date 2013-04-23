@@ -1,5 +1,5 @@
 " Leader
-let mapleader = " "
+let mapleader = ","
 
 set nocompatible  " Use Vim settings, rather then Vi settings
 set nobackup
@@ -19,7 +19,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Define bundles via Github repos
-Bundle 'croaky/vim-colors-github'
 Bundle 'danro/rename.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
@@ -38,13 +37,19 @@ Bundle 'vim-scripts/greplace.vim'
 Bundle 'vim-scripts/tComment'
 Bundle 'vim-scripts/RubySinatra'
 Bundle 'vim-scripts/pythoncomplete'
-Bundle 'vim-scripts/Zenburn'
-Bundle 'vim-scripts/vim-coffee-script'
 Bundle 'docunext/closetag.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'xenoterracide/html.vim'
 Bundle 'othree/html5.vim'
+Bundle 'scrooloose/nerdtree'
 Bundle 'jelera/vim-javascript-syntax'
+Bundle 'flazz/vim-colorschemes'
+"Bundle 'vim-scripts/AutoComplPop'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-distinguished'
+Bundle 'Lokaltog/vim-powerline'
+" upgrade to powerline (next version) when it's finished
+" Bundle 'Lokaltog/powerline'
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -90,7 +95,7 @@ if executable("ag")
 endif
 
 " Color scheme
-colorscheme zenburn
+colorscheme molokai
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
@@ -147,6 +152,10 @@ au BufRead,BufNewFile *.md setlocal spell
 " Automatically wrap at 80 characters for Markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
+" NERDtree mappings
+autocmd vimenter * if !argc() | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " rspec mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
