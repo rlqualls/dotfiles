@@ -142,13 +142,12 @@ nnoremap <Down> :echoe "Use j"<CR>
 
 " Map jj to escape in insert mode
 imap jj <ESC>
-imap js <ESC>:update<CR>
 
 " Why is it necessary to hit shift to enter commands?
 nnoremap ; :
 
 " Run files with F5
-map <F5> :!chmod +x %<CR> :!./%<CR>
+map <F5> :w<CR> :!chmod +x %<CR> :!./%<CR>
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
