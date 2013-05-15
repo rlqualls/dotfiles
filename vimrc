@@ -31,6 +31,8 @@ Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-rvm'
+Bundle 't9md/vim-ruby-xmpfilter'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'vim-scripts/ctags.vim'
 Bundle 'vim-scripts/greplace.vim'
@@ -140,14 +142,23 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" Map jj to escape in insert mode
-imap jj <ESC>
+" Map jk to escape in insert mode
+imap jk <ESC>
 
 " Why is it necessary to hit shift to enter commands?
 nnoremap ; :
 
 " Run files with F5
 map <F5> :w<CR> :!chmod +x %<CR> :!./%<CR>
+
+" Xmpfilter mappings - execute ruby code within vim. requires gem rcodetools
+nmap <buffer> <F3> <Plug>(xmpfilter-mark)
+xmap <buffer> <F3> <Plug>(xmpfilter-mark)
+imap <buffer> <F3> <Plug>(xmpfilter-mark)
+
+nmap <buffer> <F4> <Plug>(xmpfilter-run)
+xmap <buffer> <F4> <Plug>(xmpfilter-run)
+imap <buffer> <F4> <Plug>(xmpfilter-run)
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
