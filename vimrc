@@ -10,6 +10,8 @@ set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
+set noesckeys     " Remove delay after esc
+set shiftround    " shift on even tabs
 
 " Declare bundles are handled via Vundle
 set rtp+=~/.vim/bundle/vundle/
@@ -60,6 +62,7 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 endif
 
 filetype plugin indent on
+runtime macros/matchit.vim
 
 augroup vimrcEx
   au!
@@ -133,17 +136,22 @@ map <Leader>ct :!ctags -R .<CR>
 autocmd User Rails Rnavcommand step features/step_definitions -glob=**/* -suffix=_steps.rb
 autocmd User Rails Rnavcommand config config -glob=**/* -suffix=.rb -default=routes
 
-" Switch between the last two files
-nnoremap <leader><leader> <c-^>
-
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" Map jk to escape in insert mode
+" Home row mappings
 imap jk <ESC>
+
+" Edit another file in same directory as current file
+map <leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
+map <leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
+map <leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
+
+" Other leader mappings
+map <leader>t :!rspec<CR>
 
 " Why is it necessary to hit shift to enter commands?
 nnoremap ; :
@@ -165,52 +173,11 @@ let g:html_indent_tags = 'li\|p'
 
 " Markdown files end in .md
 au BufRead,BufNewFile *.md set filetype=markdown
-
-" Enable spellchecking for Markdown
 au BufRead,BufNewFile *.md setlocal spell
-
-" Automatically wrap at 80 characters for Markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " NERDtree mappings
 autocmd vimenter * if !argc() | NERDTree | endif
-map <C-n> :NERDTreeToggle<CR>
+" The % make it use the current file's dir
+map <C-n> :NERDTreeToggle %<CR> 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" rspec mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-
-function! RunCurrentSpecFile()
-  if InSpecFile()
-    let l:command = "s " . @% . " -f documentation"
-    call SetLastSpecCommand(l:command)
-    call RunSpecs(l:command)
-  endif
-endfunction
-
-function! RunNearestSpec()
-  if InSpecFile()
-    let l:command = "s " . @% . " -l " . line(".") . " -f documentation"
-    call SetLastSpecCommand(l:command)
-    call RunSpecs(l:command)
-  endif
-endfunction
-
-function! RunLastSpec()
-  if exists("t:last_spec_command")
-    call RunSpecs(t:last_spec_command)
-  endif
-endfunction
-
-function! InSpecFile()
-  return match(expand("%"), "_spec.rb$") != -1
-endfunction
-
-function! SetLastSpecCommand(command)
-  let t:last_spec_command = a:command
-endfunction
-
-function! RunSpecs(command)
-  execute ":w\|!clear && echo " . a:command . " && echo && " . a:command
-endfunction
