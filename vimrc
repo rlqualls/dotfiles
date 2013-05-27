@@ -1,6 +1,5 @@
 " Leader
 let mapleader = ","
-
 set nocompatible  " Use Vim settings, rather then Vi settings
 set nobackup
 set nowritebackup
@@ -141,6 +140,12 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+
+" Fix insert mode arrow keys outputting letters
+imap OA <up>
+imap OB <down>
+imap OC <right>
+imap OD <left>
 
 " Home row mappings
 imap jk <ESC>
