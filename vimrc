@@ -9,7 +9,7 @@ set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
-set noesckeys     " Remove delay after esc
+" set noesckeys     " Remove delay after esc
 set shiftround    " shift on even tabs
 
 " Declare bundles are handled via Vundle
