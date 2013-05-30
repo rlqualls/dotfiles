@@ -11,6 +11,8 @@ alias v="$VISUAL"
 
 # git
 alias gci="git pull --rebase && rake && git push"
+alias gp="git push"
+alias gcm="git commit -m"
 
 # Bundler
 alias b="bundle"
@@ -25,7 +27,7 @@ alias giv="gem install -v"
 
 # Rails
 alias migrate="rake db:migrate && rake db:rollback && rake db:migrate && rake db:test:prepare"
-alias m="migrate"
 alias rk="rake"
-alias s="rspec"
-alias z="zeus"
+
+# Dotfiles
+alias dotinstall="rm -rf ~/.vim && ~/dotfiles/install.sh"
