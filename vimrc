@@ -42,9 +42,11 @@ Bundle 'vim-scripts/RubySinatra'
 Bundle 'vim-scripts/pythoncomplete'
 Bundle 'docunext/closetag.vim'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'xenoterracide/html.vim'
 Bundle 'othree/html5.vim'
 Bundle 'scrooloose/nerdtree'
+" Bundle 'Sirupsen/vim-execrus'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'flazz/vim-colorschemes'
 "Bundle 'vim-scripts/AutoComplPop'
@@ -161,7 +163,7 @@ map <leader>t :!rspec<CR>
 " Why is it necessary to hit shift to enter commands?
 nnoremap ; :
 
-" Run files with F5
+" Run files
 map <F5> :w<CR> :!chmod +x %<CR> :!./%<CR>
 
 " Xmpfilter mappings - execute ruby code within vim. requires gem rcodetools
