@@ -29,6 +29,10 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+c kill
 
+# Take a screenshot
+
+bindsym $mod+Print exec import -window root ~/media/screenshot.jpg
+
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
