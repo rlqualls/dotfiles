@@ -10,6 +10,7 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 " set noesckeys     " Remove delay after esc
+set bs=indent,eol,start
 set shiftround    " shift on even tabs
 
 " Declare bundles are handled via Vundle
@@ -155,6 +156,7 @@ map <S-k> o<Esc>k
 
 " Home row mappings
 imap jk <ESC>
+map <C-h> bdw
 
 " Edit another file in same directory as current file
 map <leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
@@ -188,7 +190,7 @@ au BufRead,BufNewFile *.md setlocal spell
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " NERDtree mappings
-autocmd vimenter * if !argc() | NERDTree | endif
+" autocmd vimenter * if !argc() | NERDTree | endif
 " The % make it use the current file's dir
 map <C-n> :NERDTreeToggle %<CR> 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
