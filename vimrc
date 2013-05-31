@@ -149,6 +149,10 @@ imap OB <down>
 imap OC <right>
 imap OD <left>
 
+" Ability to add new lines without moving or entering insert mode
+map <S-k> O<Esc>j
+map <S-j> o<Esc>k
+
 " Home row mappings
 imap jk <ESC>
 
