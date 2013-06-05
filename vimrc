@@ -40,10 +40,11 @@ Bundle 'vim-scripts/ctags.vim'
 Bundle 'vim-scripts/greplace.vim'
 Bundle 'vim-scripts/tComment'
 Bundle 'vim-scripts/RubySinatra'
-Bundle 'vim-scripts/pythoncomplete'
 Bundle 'docunext/closetag.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'ecomba/vim-ruby-refactoring'
+"Bundle 'davidhalter/jedi-vim'
+Bundle 'scrooloose/syntastic'
 Bundle 'xenoterracide/html.vim'
 Bundle 'othree/html5.vim'
 Bundle 'scrooloose/nerdtree'
@@ -165,6 +166,7 @@ map <leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 
 " Other leader mappings
 map <leader>t :!rspec<CR>
+map <leader>c :!cucumber<CR>
 
 " Why is it necessary to hit shift to enter commands?
 nnoremap ; :
