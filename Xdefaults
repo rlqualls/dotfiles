@@ -3,14 +3,14 @@ URxvt.foreground: #a0a0a0
 !URxvt.depth: 32
 URxvt*background: #1b1d1e
 
-URxvt*transparent: true
+URxvt*transparent: false
 URxvt*shading: 20
 
 URxvt.saveLines:32767
 URxvt.scrollBar: false
 
 URxvt*font: xft:terminus:pixelsize=14
-#URxvt*font: -*-terminus-medium-r-normal-*-*-*-*-*-*-*-iso10646-*
+!URxvt*font: -*-terminus-medium-r-normal-*-*-*-*-*-*-*-iso10646-*
 !URxvt*xftAntialias: true
 
 URxvt.perl-ext-common: default,matcher
@@ -22,44 +22,39 @@ URxvt*colorUL: #c5f779
 URxvt*underlineColor: #c5f779
 
 URxvt*color0:	#1b1d1e
-URxvt*color1:       #f92672
-URxvt*color2:     #82b414
-URxvt*color3:    #fd971f
-URxvt*color4:      #56c2d6
-URxvt*color5:   #8c54fe
-URxvt*color6:      #465457
-URxvt*color7:     #ccccc6
+URxvt*color1: #f92672
+URxvt*color2: #82b414
+URxvt*color3: #fd971f
+URxvt*color4: #56c2d6
+URxvt*color5: #8c54fe
+URxvt*color6: #465457
+URxvt*color7: #ccccc6
+URxvt*color8: #505354
+URxvt*color9: #ff5995
+URxvt*color10:#b6e354
+URxvt*color11:#f0dfaf
+URxvt*color12:#94bff3
+URxvt*color13:#9e6ffe
+URxvt*color14:#93e0e3
+URxvt*color15:#f8f8f2
 
-URxvt*color8:      #505354
-URxvt*color9:      #ff5995
-URxvt*color10:    #b6e354
-URxvt*color11:   #f0dfaf
-URxvt*color12:     #94bff3
-URxvt*color13:  #9e6ffe
-URxvt*color14:    #93e0e3
-URxvt*color15:          #f8f8f2
-
-!black
-xterm*color0:         #353535
-xterm*color8:         #666666
-!red
-xterm*color1:         #AE4747
-xterm*color9:         #EE6363
-!green
-xterm*color2:         #556B2F
-xterm*color10:        #9ACD32
-!brown/yellow
-xterm*color3:         #DAA520
-xterm*color11:        #FFC125
-!blue
-xterm*color4:         #6F99B4
-xterm*color12:        #7C96B0
-!magenta
-xterm*color5:         #8B7B8B
-xterm*color13:        #D8BFD8
-!cyan
-xterm*color6:         #A7A15E
-xterm*color14:        #F0E68C
-!white
-xterm*color7:         #DDDDDD
-xterm*color15:        #FFFFFF
+xterm*faceName: Terminus:size=10:antialias=false
+xterm*font: 7x13
+xterm*foreground: #ededed
+xterm*background: #1b1d1e
+xterm*color0:	#1b1d1e
+xterm*color1: #f92672
+xterm*color2: #82b414
+xterm*color3: #fd971f
+xterm*color4: #56c2d6
+xterm*color5: #8c54fe
+xterm*color6: #465457
+xterm*color7: #ccccc6
+xterm*color8: #505354
+xterm*color9: #ff5995
+xterm*color10:#b6e354
+xterm*color11:#f0dfaf
+xterm*color12:#94bff3
+xterm*color13:#9e6ffe
+xterm*color14:#93e0e3
+xterm*color15:#f8f8f2
