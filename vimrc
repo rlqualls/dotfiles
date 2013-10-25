@@ -40,8 +40,10 @@ Bundle 'vim-scripts/ctags.vim'
 Bundle 'vim-scripts/greplace.vim'
 Bundle 'vim-scripts/tComment'
 Bundle 'vim-scripts/RubySinatra'
-Bundle 'docunext/closetag.vim'
+" Bundle 'docunext/closetag.vim'
+Bundle 'othree/xml.vim'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'slim-template/vim-slim'
 Bundle 'ecomba/vim-ruby-refactoring'
 "Bundle 'davidhalter/jedi-vim'
 Bundle 'scrooloose/syntastic'
@@ -104,8 +106,8 @@ endif
 
 " Color scheme
 colorscheme molokai
-highlight NonText guibg=#060606
-highlight Folded  guibg=#0A0A0A guifg=#9090D0
+" highlight NonText guibg=#060606
+" highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
 " Numbers
 set number
@@ -144,6 +146,10 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+
+" Move up and down virtual lines, not actual lines
+nmap k gk
+nmap j gj
 
 " Fix insert mode arrow keys outputting letters
 imap OA <up>
@@ -190,6 +196,9 @@ let g:html_indent_tags = 'li\|p'
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.md setlocal spell
 au BufRead,BufNewFile *.md setlocal textwidth=80
+
+" Turn spelling on for text files
+au BufRead,BufNewFile *.txt setlocal spell
 
 " NERDtree mappings
 " autocmd vimenter * if !argc() | NERDTree | endif
