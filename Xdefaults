@@ -38,6 +38,7 @@ URxvt*color13:#9e6ffe
 URxvt*color14:#93e0e3
 URxvt*color15:#f8f8f2
 
+xterm*termName: xterm-256color
 xterm*faceName: Terminus:size=10:antialias=false
 xterm*font: 7x13
 xterm*foreground: #ededed

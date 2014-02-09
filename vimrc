@@ -8,7 +8,8 @@ set history=50
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
-set laststatus=2  " Always display the status line
+set laststatus=2  " always display the status line
+set iskeyword-=_  " separate words by underscores
 " set noesckeys     " Remove delay after esc
 set bs=indent,eol,start
 set shiftround    " shift on even tabs
@@ -32,6 +33,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rvm'
 Bundle 't9md/vim-ruby-xmpfilter'
@@ -174,11 +176,20 @@ map <leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 map <leader>t :!rspec<CR>
 map <leader>c :!cucumber<CR>
 
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPLastMode'
+let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
+
 " Why is it necessary to hit shift to enter commands?
 nnoremap ; :
 
+" Like other applications, quit with q - replaces the macro record key
+nmap q :q<CR>
+
 " Run files
-map <F5> :w<CR> :!chmod +x %<CR> :!./%<CR>
+" map <F5> :w<CR> :!chmod +x %<CR> :!./%<CR>
+map <F5> :w<CR> :!bash -c "ruby %:p"<CR>
 
 " Xmpfilter mappings - execute ruby code within vim. requires gem rcodetools
 nmap <buffer> <F3> <Plug>(xmpfilter-mark)
