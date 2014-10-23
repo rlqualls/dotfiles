@@ -1,0 +1,111 @@
+let mapleader = ","
+" set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+" set history=50
+set ruler         " show the cursor position all the time
+set showcmd       " display incomplete commands
+set incsearch     " do incremental searching
+set laststatus=2  " always display the status line
+set iskeyword-=_  " separate words by underscores
+" set noesckeys     " Remove delay after esc
+set bs=indent,eol,start
+set shiftround    " shift on even tabs
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+" if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+"   syntax on
+" endif
+"
+" filetype plugin indent on
+" runtime macros/matchit.vim
+
+" augroup vimrcEx
+"   au!
+"
+"   " For all text files set 'textwidth' to 78 characters.
+"   autocmd FileType text setlocal textwidth=78
+"
+"   " When editing a file, always jump to the last known cursor position.
+"   " Don't do it when the position is invalid or when inside an event handler
+"   " (happens when dropping a file on gvim).
+"   autocmd BufReadPost *
+"     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+"     \   exe "normal g`\"" |
+"     \ endif
+" augroup END
+
+" Softtabs, 2 spaces
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set backspace=2
+
+" Display extra whitespace
+"set list listchars=tab:»·,trail:·
+
+" " Local config
+" if filereadable(".vimrc.local")
+"   source .vimrc.local
+" endif
+"
+" " Use Ag (https://github.com/ggreer/the_silver_searcher) instead of Grep when
+" " available
+" if executable("ag")
+"   set grepprg=ag\ --noheading\ --nogroup\ --nocolor
+" endif
+
+" Color scheme
+" colorscheme anotherdark
+" highlight NonText guibg=#060606
+" highlight Folded  guibg=#0A0A0A guifg=#9090D0
+
+" Numbers
+set number
+set numberwidth=5
+
+" Tab completion
+" will insert tab at beginning of line,
+" will use completion if not at beginning
+" set wildmode=list:longest,list:full
+" set complete=.,w,t
+" function! InsertTabWrapper()
+"     let col = col('.') - 1
+"     if !col || getline('.')[col - 1] !~ '\k'
+"         return "\<tab>"
+"     else
+"         return "\<c-p>"
+"     endif
+" endfunction
+" inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+
+" Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
+let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
+
+" Move up and down virtual lines, not actual lines
+" nmap k gk
+" nmap j gj
+
+" Fix insert mode arrow keys outputting letters
+imap OA <up>
+imap OB <down>
+imap OC <right>
+imap OD <left>
+
+" Ability to add new lines without moving or entering insert mode
+" map <S-j> O<Esc>j
+" map <S-k> o<Esc>k
+
+" Home row mappings
+imap jk <ESC>
+map <D-h> bdw
+
+" Edit another file in same directory as current file
+" map <leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
+" map <leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
+" map <leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
+
+" Why is it necessary to hit shift to enter commands?
+nnoremap ; :
+
+" Like other applications, quit with q - replaces the macro record key
+nmap q :q<CR>

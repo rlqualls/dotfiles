@@ -37,7 +37,7 @@ Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rvm'
 Bundle 't9md/vim-ruby-xmpfilter'
-Bundle 'tsaleh/vim-matchit'
+" Bundle 'tsaleh/vi-matchit'
 Bundle 'vim-scripts/ctags.vim'
 Bundle 'vim-scripts/greplace.vim'
 Bundle 'vim-scripts/tComment'
@@ -45,6 +45,7 @@ Bundle 'vim-scripts/RubySinatra'
 " Bundle 'docunext/closetag.vim'
 Bundle 'othree/xml.vim'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'Keithbsmiley/swift.vim'
 Bundle 'slim-template/vim-slim'
 Bundle 'ecomba/vim-ruby-refactoring'
 "Bundle 'davidhalter/jedi-vim'
@@ -107,7 +108,7 @@ if executable("ag")
 endif
 
 " Color scheme
-colorscheme molokai
+colorscheme anotherdark
 " highlight NonText guibg=#060606
 " highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
@@ -178,6 +179,7 @@ map <leader>c :!cucumber<CR>
 
 " CtrlP
 let g:ctrlp_map = '<c-p>'
+let g:ctrlp_working_path_mode = 0
 let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
 
@@ -214,5 +216,15 @@ au BufRead,BufNewFile *.txt setlocal spell
 " NERDtree mappings
 " autocmd vimenter * if !argc() | NERDTree | endif
 " The % make it use the current file's dir
-map <C-n> :NERDTreeToggle %<CR> 
+map <C-n> :NERDTreeToggle <CR> 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Remove whitespace on save
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
