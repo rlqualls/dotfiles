@@ -13,6 +13,13 @@ set iskeyword-=_  " separate words by underscores
 " set noesckeys     " Remove delay after esc
 set bs=indent,eol,start
 set shiftround    " shift on even tabs
+set wrap
+set linebreak
+set nolist
+set tw=0
+set wrapmargin=0
+set formatoptions+=t
+set viminfo='100,h
 
 " Declare bundles are handled via Vundle
 set rtp+=~/.vim/bundle/vundle/
@@ -182,6 +189,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Why is it necessary to hit shift to enter commands?
 nnoremap ; :
@@ -194,13 +202,13 @@ nmap q :q<CR>
 map <F5> :w<CR> :!bash -c "ruby %:p"<CR>
 
 " Xmpfilter mappings - execute ruby code within vim. requires gem rcodetools
-nmap <buffer> <F3> <Plug>(xmpfilter-mark)
-xmap <buffer> <F3> <Plug>(xmpfilter-mark)
-imap <buffer> <F3> <Plug>(xmpfilter-mark)
+nmap <buffer> <D-m> <Plug>(xmpfilter-mark)
+xmap <buffer> <D-m> <Plug>(xmpfilter-mark)
+imap <buffer> <D-m> <Plug>(xmpfilter-mark)
 
-nmap <buffer> <F4> <Plug>(xmpfilter-run)
-xmap <buffer> <F4> <Plug>(xmpfilter-run)
-imap <buffer> <F4> <Plug>(xmpfilter-run)
+nmap <buffer> <D-r> <Plug>(xmpfilter-run)
+xmap <buffer> <D-r> <Plug>(xmpfilter-run)
+imap <buffer> <D-r> <Plug>(xmpfilter-run)
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
