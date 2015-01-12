@@ -69,6 +69,7 @@ Bundle 'flazz/vim-colorschemes'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'SirVer/ultisnips'
 
 " HTML Stuff
 Bundle 'rstacruz/sparkup'
@@ -205,6 +206,9 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 nnoremap ; :
 
 " Like other applications, quit with q - replaces the macro record key
+nnoremap <leader>qq qq
+nnoremap <leader>q q
+nnoremap <Space> @q
 nmap q :q<CR>
 
 " Run files
