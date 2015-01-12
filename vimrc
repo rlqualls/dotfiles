@@ -27,6 +27,7 @@ call vundle#rc()
 
 " Let Vundle manage Vundle
 Bundle 'gmarik/vundle'
+"
 
 " Define bundles via Github repos
 Bundle 'danro/rename.vim'
@@ -53,6 +54,7 @@ Bundle 'vim-scripts/RubySinatra'
 Bundle 'othree/xml.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'Keithbsmiley/swift.vim'
+Bundle 'elixir-lang/vim-elixir'
 Bundle 'slim-template/vim-slim'
 Bundle 'ecomba/vim-ruby-refactoring'
 "Bundle 'davidhalter/jedi-vim'
@@ -67,6 +69,14 @@ Bundle 'flazz/vim-colorschemes'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'Lokaltog/vim-powerline'
+
+" HTML Stuff
+Bundle 'rstacruz/sparkup'
+
+"Clojure Stuff
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'guns/vim-clojure-static'
+
 " upgrade to powerline (next version) when it's finished
 " Bundle 'Lokaltog/powerline'
 
@@ -115,7 +125,7 @@ if executable("ag")
 endif
 
 " Color scheme
-colorscheme anotherdark
+colorscheme 256-jungle
 " highlight NonText guibg=#060606
 " highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
@@ -176,7 +186,7 @@ imap jk <ESC>
 map <C-h> bdw
 
 " Edit another file in same directory as current file
-map <leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
+" map <leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 map <leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
 map <leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 
@@ -236,3 +246,37 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
+" 4 Space tabs in python (so wasteful...)
+autocmd FileType python setlocal shiftwidth=4 tabstop=4
+
+" Rainbow Parentheses Stuff
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+let g:rbpt_max = 16
+
+let g:rbpt_loadcmd_toggle = 0
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+let g:sparkupExecuteMapping = '<leader>e'
