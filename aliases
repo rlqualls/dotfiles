@@ -7,12 +7,84 @@ alias l='ls'
 alias ll='ls -al'
 alias lh='ls -Alh'
 alias e="$EDITOR"
-alias v="$VISUAL"
+alias resource="source ~/.aliases"
+# alias s="ag"
 
 # git
 alias gci="git pull --rebase && rake && git push"
 alias gp="git push"
 alias gcm="git commit -m"
+alias br="git br"
+alias st="git st"
+alias pull="git pull"
+alias log="git log"
+alias diff="git diff"
+alias stash="git stash"
+alias chbr="git co \$(git br | fzf)"
+
+restash () {
+  git stash save $1 && git stash apply
+}
+
+s () {
+  if [[ "$1" =~ "http" ]]; then
+    curl "$1"
+  else
+    ag "$1"
+  fi
+}
+
+logp () {
+  git log -p $(fzf)
+}
+
+blame () {
+  git blame $(fzf)
+}
+
+co () {
+  git co $(fzf)
+}
+
+fz () {
+  less $(fzf)
+}
+
+v () {
+  vi $(find "$PWD" | fzf)
+}
+
+look () {
+  find . -name "*$1*"
+}
+
+work () {
+  vi ~/Documents/work/$(date +%m_%d_%y).txt
+}
+
+ywork () {
+  vi ~/Documents/work/$(date -v-1d +%m_%d_%y).txt
+}
+
+allwork () {
+  grep -r "[A-Z]\-[0-9]" ~/Documents/work/
+}
+
+standup () {
+  vi ~/Documents/standup/$(date +%m_%d_%y).txt
+}
+
+chtheme () {
+  bashish $(bashish list | fzf)
+}
+
+pi () {
+  ssh -X pi@$(cat ~/.ip.txt)
+}
+
+ip2country () {
+  curl -s https://api.ip2country.info/ip?$1 | jq .countryName
+}
 
 # Bundler
 alias b="bundle"

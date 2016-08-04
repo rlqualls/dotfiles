@@ -69,7 +69,7 @@ Bundle 'flazz/vim-colorschemes'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'SirVer/ultisnips'
+" Bundle 'SirVer/ultisnips'
 
 " HTML Stuff
 Bundle 'rstacruz/sparkup'
@@ -126,7 +126,7 @@ if executable("ag")
 endif
 
 " Color scheme
-colorscheme 256-jungle
+colorscheme monokain
 " highlight NonText guibg=#060606
 " highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
